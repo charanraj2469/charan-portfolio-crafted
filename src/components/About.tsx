@@ -1,4 +1,5 @@
 
+
 export function About() {
   return (
     <section id="about" className="py-32 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20 relative overflow-hidden">
@@ -17,7 +18,7 @@ export function About() {
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20">
               <div className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                 <p className="text-xl font-medium text-gray-800 dark:text-gray-200">
-                  Hey there! 👋 I'm a passionate Full Stack Developer from Kamareddy, Telangana.
+                  Hey there! 👋 I'm a passionate Full Stack Developer.
                 </p>
                 <p>
                   I specialize in creating <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-semibold">meaningful digital experiences</span> through thoughtful design and clean, efficient code.
@@ -78,3 +79,4 @@ export function About() {
     </section>
   );
 }
+
