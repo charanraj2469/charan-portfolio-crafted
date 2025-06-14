@@ -51,6 +51,19 @@ export function About() {
                 Education
               </h3>
               <div className="space-y-6">
+                <div className="border-l-4 border-gradient-to-b from-blue-500 to-purple-600 pl-6 relative">
+                  <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-lg">NxtWave CCBP 4.0 Intensive Program</h4>
+                  <p className="text-blue-600 dark:text-blue-400 font-medium">Full Stack Developer Trainee</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">2023 – Present</p>
+                  <div className="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                    <p>• Frontend: React.js, JavaScript, Bootstrap, Responsive Design</p>
+                    <p>• Backend: Node.js, Express, REST APIs, MongoDB</p>
+                    <p>• Version Control: Git, GitHub</p>
+                    <p>• Real-world project building and problem-solving</p>
+                  </div>
+                </div>
+                
                 <div className="border-l-4 border-gradient-to-b from-yellow-400 to-orange-500 pl-6 relative">
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
                   <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-lg">Bachelor of Business Administration</h4>
