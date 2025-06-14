@@ -12,15 +12,47 @@ export function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
   const { toast } = useToast();
+
+  const validateForm = () => {
+    const newErrors = {
+      name: '',
+      email: '',
+      message: ''
+    };
+
+    // Name validation (min 3 characters)
+    if (formData.name.length < 3) {
+      newErrors.name = 'Name must be at least 3 characters long';
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Message validation (min 30 characters)
+    if (formData.message.length < 30) {
+      newErrors.message = 'Message must be at least 30 characters long';
+    }
+
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.email && !newErrors.message;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!validateForm()) {
       toast({
         title: "Validation Error",
-        description: "Please fill in all required fields.",
+        description: "Please fix the errors below and try again.",
         variant: "destructive"
       });
       return;
@@ -28,14 +60,40 @@ export function Contact() {
 
     setIsSubmitting(true);
     
-    setTimeout(() => {
-      toast({
-        title: "Message Sent! ✨",
-        description: "Thanks for reaching out! I'll respond soon."
+    try {
+      const response = await fetch('https://formspree.io/f/xeoqbvnk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email
+        }),
       });
-      setFormData({ name: '', email: '', message: '' });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent! ✨",
+          description: "Thanks for reaching out! I'll respond soon."
+        });
+        setFormData({ name: '', email: '', message: '' });
+        setErrors({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactLinks = [
@@ -117,29 +175,41 @@ export function Contact() {
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <Input
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200"
-                required
-              />
-              <Input
-                type="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200"
-                required
-              />
-              <Textarea
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={5}
-                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200 resize-none"
-                required
-              />
+              <div>
+                <Input
+                  placeholder="Your Name (min 3 characters)"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className={`bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200 ${errors.name ? 'ring-2 ring-red-500' : ''}`}
+                  required
+                />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              </div>
+              
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={`bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200 ${errors.email ? 'ring-2 ring-red-500' : ''}`}
+                  required
+                />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              </div>
+              
+              <div>
+                <Textarea
+                  placeholder="Your Message (min 30 characters)"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={5}
+                  className={`bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200 resize-none ${errors.message ? 'ring-2 ring-red-500' : ''}`}
+                  required
+                />
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+              </div>
+              
               <Button 
                 type="submit" 
                 className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
