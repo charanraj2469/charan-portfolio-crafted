@@ -15,7 +15,7 @@ const Index = () => {
     <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
       <div className="min-h-screen font-swiss antialiased">
         <Header />
-        <main className="overflow-hidden" style={{ paddingTop: '17px' }}>
+        <main className="overflow-hidden" style={{ paddingTop: '21px' }}>
           <Hero />
           <About />
           <Skills />
