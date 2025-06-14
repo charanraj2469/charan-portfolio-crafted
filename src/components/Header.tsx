@@ -21,63 +21,59 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg' 
+        ? 'bg-background/80 backdrop-blur-md border-b border-border/50' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="h-20 flex items-center justify-between">
-          <div className="font-bold text-2xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+        <div className="h-16 flex items-center justify-between">
+          <div className="font-medium text-lg">
             Charan Raj
           </div>
           
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-sm font-medium tracking-wide hover:text-primary transition-colors duration-300 relative group"
+              className="text-sm hover:text-primary transition-colors"
             >
               Home
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-sm font-medium tracking-wide hover:text-primary transition-colors duration-300 relative group"
+              className="text-sm hover:text-primary transition-colors"
             >
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-sm font-medium tracking-wide hover:text-primary transition-colors duration-300 relative group"
+              className="text-sm hover:text-primary transition-colors"
             >
               Projects
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="text-sm font-medium tracking-wide hover:text-primary transition-colors duration-300 relative group"
+              className="text-sm hover:text-primary transition-colors"
             >
               Skills
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-sm font-medium tracking-wide hover:text-primary transition-colors duration-300 relative group"
+              className="text-sm hover:text-primary transition-colors"
             >
               Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <ThemeToggle />
             <Button 
               variant="ghost" 
+              size="sm"
               onClick={() => scrollToSection('contact')}
-              className="hidden md:inline-flex font-medium tracking-wide px-6 py-2 rounded-full border border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              className="hidden md:inline-flex text-sm"
             >
-              Let's Collaborate
+              Let's Talk
             </Button>
           </div>
         </div>

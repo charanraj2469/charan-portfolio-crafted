@@ -2,70 +2,52 @@
 export function About() {
   const timeline = [
     {
-      icon: "🎓",
-      title: "Avinash College of Commerce, Hyderabad",
-      subtitle: "BBA (2021–2024), CGPA: 8.6",
-      color: "from-blue-500 to-blue-600"
+      title: "Avinash College of Commerce",
+      subtitle: "BBA (2021–2024) • CGPA: 8.6",
+      period: "2021-2024"
     },
     {
-      icon: "👨‍💻",
-      title: "Internship @ Codetech IT Solutions",
-      subtitle: "Feb–Mar 2025",
-      color: "from-green-500 to-green-600"
+      title: "CodeTech IT Solutions",
+      subtitle: "Frontend Developer Intern",
+      period: "Feb-Mar 2025"
     },
     {
-      icon: "🧠",
-      title: "Trained by NxtWave",
-      subtitle: "Full Stack Development",
-      color: "from-purple-500 to-purple-600"
+      title: "NxtWave Technologies",
+      subtitle: "Full Stack Development Training",
+      period: "2024"
     },
   ];
 
   return (
-    <section id="about" className="py-32 lg:py-40 bg-gradient-to-b from-background to-muted/30">
+    <section id="about" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-20 lg:gap-32 items-start">
-            <div className="lg:col-span-5">
-              <div className="sticky top-32">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-8">
-                  About <span className="font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Me</span>
-                </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full"></div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">
+                About Me
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  I'm a passionate Full Stack Developer from Kamareddy, Telangana. With a commerce background and deep curiosity in tech, I build responsive and scalable applications using the MERN stack.
+                </p>
+                <p>
+                  I've interned at Codetech IT Solutions and trained at NxtWave Technologies. I love solving real-world problems with clean code and elegant UI.
+                </p>
               </div>
             </div>
             
-            <div className="lg:col-span-7 space-y-16">
-              <div className="prose prose-lg max-w-none">
-                <div className="bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50 shadow-lg">
-                  <p className="text-xl leading-relaxed text-muted-foreground font-light tracking-wide mb-6">
-                    I'm a passionate Full Stack Developer from Kamareddy, Telangana. With a commerce background and deep curiosity in tech, I build responsive and scalable applications using the MERN stack.
-                  </p>
-                  <p className="text-xl leading-relaxed text-muted-foreground font-light tracking-wide">
-                    I've interned at Codetech IT Solutions and trained at NxtWave Technologies. I love solving real-world problems with clean code and elegant UI.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid gap-8">
-                {timeline.map((item, index) => (
-                  <div key={index} className="group">
-                    <div className="grid grid-cols-12 gap-6 items-start">
-                      <div className="col-span-2 md:col-span-1">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          {item.icon}
-                        </div>
-                      </div>
-                      <div className="col-span-10 md:col-span-11">
-                        <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-6 border border-border/30 hover:border-border/50 transition-all duration-300 group-hover:shadow-lg">
-                          <h3 className="font-medium text-xl leading-tight tracking-wide mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground font-light tracking-wide text-lg">{item.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
+            <div className="space-y-6">
+              {timeline.map((item, index) => (
+                <div key={index} className="border-l-2 border-border pl-6 pb-6 relative">
+                  <div className="absolute w-2 h-2 bg-primary rounded-full -left-[5px] top-2"></div>
+                  <div className="space-y-1">
+                    <h3 className="font-medium">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+                    <p className="text-xs text-muted-foreground/70">{item.period}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
