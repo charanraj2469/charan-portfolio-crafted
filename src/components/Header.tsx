@@ -23,58 +23,44 @@ export function Header() {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-background/80 backdrop-blur-md border-b border-border/50' 
+        ? 'bg-white/90 backdrop-blur-sm border-b border-gray-100' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="h-16 flex items-center justify-between">
-          <div className="font-medium text-lg">
-            Charan Raj
+      <div className="container mx-auto px-8 lg:px-12">
+        <div className="h-20 flex items-center justify-between">
+          <div className="text-lg font-light text-gray-900">
+            CR
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-light"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-light"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-light"
             >
-              Projects
-            </button>
-            <button 
-              onClick={() => scrollToSection('skills')}
-              className="text-sm hover:text-primary transition-colors"
-            >
-              Skills
+              Work
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-light"
             >
               Contact
             </button>
           </nav>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => scrollToSection('contact')}
-              className="hidden md:inline-flex text-sm"
-            >
-              Let's Talk
-            </Button>
           </div>
         </div>
       </div>

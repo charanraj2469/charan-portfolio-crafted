@@ -8,43 +8,35 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-background">
-      <div className="container mx-auto px-6 lg:px-8 relative">
-        <div className="max-w-4xl mx-auto text-center">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-white">
+      <div className="container mx-auto px-8 lg:px-12 max-w-4xl">
+        <div className="text-center space-y-12">
           <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[0.9]">
-                Hi, I'm{" "}
-                <span className="font-medium">
-                  Charan Raj
-                </span>
-                <span className="inline-block ml-2 text-4xl md:text-5xl lg:text-6xl">👋</span>
-              </h1>
-            </div>
-            
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Full Stack Developer crafting digital experiences with React, Node.js & Modern Web Technologies.
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('projects')}
-                className="font-medium px-8 py-3 rounded-full"
-              >
-                View My Work
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => scrollToSection('contact')}
-                className="font-medium px-8 py-3 rounded-full"
-              >
-                Let's Connect
-              </Button>
-            </div>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-gray-900 leading-tight">
+              Charan Raj
+            </h1>
+            <div className="w-24 h-px bg-gray-300 mx-auto"></div>
+            <p className="text-xl md:text-2xl text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
+              Full Stack Developer crafting digital experiences with precision and care
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
+            <Button 
+              size="lg" 
+              onClick={() => scrollToSection('projects')}
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-none text-base font-normal"
+            >
+              View Work
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => scrollToSection('contact')}
+              className="border-gray-300 text-gray-900 hover:bg-gray-50 px-8 py-4 rounded-none text-base font-normal"
+            >
+              Get in Touch
+            </Button>
           </div>
         </div>
       </div>

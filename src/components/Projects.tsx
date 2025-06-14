@@ -20,52 +20,29 @@ export function Projects() {
       description: "Job portal app with search filters, protected routes, and persistent login.",
       stack: ["React", "REST API", "JWT", "CSS"],
       live: "https://chandajobby.ccbp.tech/login",
-    },
-    {
-      title: "Electro",
-      description: "A fully responsive e-commerce platform for electronics, built using WIX AI. Features include product search, filtering, and detailed listings.",
-      stack: ["WIX AI", "Web Design"],
-      live: null,
-    },
-    {
-      title: "Chat App",
-      description: "Real-time chat application with an interactive UI for seamless user communication.",
-      stack: ["React.js", "Socket.io"],
-      live: null,
-    },
-    {
-      title: "Quiz App",
-      description: "Interactive quiz platform with dynamic question rendering and score tracking.",
-      stack: ["React.js", "LocalStorage"],
-      live: null,
     }
   ];
 
   return (
-    <section id="projects" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A selection of projects showcasing my skills and experience
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="space-y-4">
-                  <h3 className="font-medium text-lg">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1">
+    <section id="projects" className="py-32 bg-white">
+      <div className="container mx-auto px-8 lg:px-12 max-w-6xl">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
+            Selected Work
+          </h2>
+          <div className="w-16 h-px bg-gray-300 mx-auto"></div>
+        </div>
+        
+        <div className="space-y-24">
+          {projects.map((project, index) => (
+            <div key={index} className="border-b border-gray-100 pb-16 last:border-b-0">
+              <div className="grid lg:grid-cols-3 gap-12 items-start">
+                <div className="lg:col-span-1">
+                  <h3 className="text-2xl font-light text-gray-900 mb-4">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.stack.map((tech, techIndex) => (
-                      <span key={techIndex} className="text-xs bg-muted px-2 py-1 rounded-full">
-                        {tech}
+                      <span key={techIndex} className="text-xs text-gray-500 font-light">
+                        {tech}{techIndex < project.stack.length - 1 ? ' /' : ''}
                       </span>
                     ))}
                   </div>
@@ -74,15 +51,21 @@ export function Projects() {
                       variant="outline" 
                       size="sm"
                       onClick={() => window.open(project.live, '_blank')}
-                      className="w-full text-xs"
+                      className="border-gray-300 text-gray-900 hover:bg-gray-50 rounded-none text-sm font-light"
                     >
-                      View Project →
+                      View Project
                     </Button>
                   )}
                 </div>
+                
+                <div className="lg:col-span-2">
+                  <p className="text-gray-600 leading-relaxed font-light text-lg">
+                    {project.description}
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
