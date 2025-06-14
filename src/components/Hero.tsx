@@ -18,12 +18,6 @@ export function Hero() {
       <div className="container mx-auto px-8 lg:px-12 max-w-5xl relative z-10">
         <div className="text-center space-y-12">
           <div className="space-y-8">
-            <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
-              <span className="text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                Available for new opportunities 🤝
-              </span>
-            </div>
-            
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent leading-tight">
               Charan Raj
             </h1>
