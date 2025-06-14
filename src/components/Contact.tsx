@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,7 +60,7 @@ export function Contact() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formspree.io/f/xeoqbvnk', {
+      const response = await fetch('https://formspree.io/f/mwpbbpnv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,14 +69,14 @@ export function Contact() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email
+          _subject: 'New submission from portfolio site'
         }),
       });
 
       if (response.ok) {
         toast({
-          title: "Message Sent! ✨",
-          description: "Thanks for reaching out! I'll respond soon."
+          title: "✅ Thanks! I've received your message and will reply soon.",
+          description: ""
         });
         setFormData({ name: '', email: '', message: '' });
         setErrors({ name: '', email: '', message: '' });
@@ -87,8 +86,8 @@ export function Contact() {
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again later.",
+        title: "⚠️ Oops! Something went wrong.",
+        description: "Please try again or contact me directly at charanchanda20@gmail.com",
         variant: "destructive"
       });
     } finally {
