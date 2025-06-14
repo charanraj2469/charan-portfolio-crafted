@@ -68,69 +68,76 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+    <section id="contact" className="py-24 lg:py-32 bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
+              Get In <span className="font-bold">Touch</span>
+            </h2>
+          </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <span className="text-xl">{item.icon}</span>
-                    <a 
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      {item.value}
-                    </a>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-medium tracking-wide mb-8">Contact Information</h3>
+                <div className="space-y-6">
+                  {contactInfo.map((item, index) => (
+                    <div key={index} className="grid grid-cols-12 gap-4 items-center">
+                      <div className="col-span-2 md:col-span-1">
+                        <span className="text-xl">{item.icon}</span>
+                      </div>
+                      <div className="col-span-10 md:col-span-11">
+                        <a 
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline font-light tracking-wide"
+                        >
+                          {item.value}
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Send Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    placeholder="Your Name *"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Your Email *"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                  />
-                  <Textarea
-                    placeholder="Your Message (min 30 characters) *"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={4}
-                    required
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <div>
+              <h3 className="text-2xl font-medium tracking-wide mb-8">Send Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <Input
+                  placeholder="Your Name *"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="border-0 bg-background font-light tracking-wide"
+                />
+                <Input
+                  type="email"
+                  placeholder="Your Email *"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="border-0 bg-background font-light tracking-wide"
+                />
+                <Textarea
+                  placeholder="Your Message (min 30 characters) *"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  required
+                  className="border-0 bg-background font-light tracking-wide resize-none"
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full font-medium tracking-wide py-3"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

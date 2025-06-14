@@ -44,26 +44,30 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-4">
+              Featured <span className="font-bold">Projects</span>
+            </h2>
+          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-sm leading-relaxed">
+              <Card key={index} className="border-0 shadow-none bg-muted/20 hover:bg-muted/30 transition-colors duration-300">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl font-medium tracking-wide">{project.title}</CardTitle>
+                  <CardDescription className="text-sm leading-relaxed font-light tracking-wide">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex flex-col justify-between flex-1">
-                  <div className="flex flex-wrap gap-1 mb-4">
+                <CardContent className="pt-0">
+                  <div className="flex flex-wrap gap-1 mb-6">
                     {project.stack.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs">
+                      <span key={techIndex} className="text-xs font-light tracking-wide text-muted-foreground bg-muted/50 px-2 py-1 rounded">
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
                   {project.live && (
@@ -71,9 +75,9 @@ export function Projects() {
                       variant="outline" 
                       size="sm"
                       onClick={() => window.open(project.live, '_blank')}
-                      className="w-full"
+                      className="w-full font-medium tracking-wide border-0 bg-primary/10 hover:bg-primary/20"
                     >
-                      🔗 Live Demo
+                      View Project →
                     </Button>
                   )}
                 </CardContent>

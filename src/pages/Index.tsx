@@ -13,9 +13,9 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-      <div className="min-h-screen font-sans">
+      <div className="min-h-screen font-swiss antialiased">
         <Header />
-        <main>
+        <main className="overflow-hidden">
           <Hero />
           <About />
           <Skills />

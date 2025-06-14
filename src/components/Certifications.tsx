@@ -11,23 +11,35 @@ export function Certifications() {
   ];
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Certifications & Learning</h2>
-          
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-muted/50">
-                <span className="text-green-500">✅</span>
-                <span className="text-sm">{cert}</span>
+    <section className="py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+            <div className="lg:col-span-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight">
+                Certifications & <span className="font-bold">Learning</span>
+              </h2>
+            </div>
+            
+            <div className="lg:col-span-8 space-y-8">
+              <div className="grid gap-3">
+                {certifications.map((cert, index) => (
+                  <div key={index} className="grid grid-cols-12 gap-4 items-center py-2 border-b border-border/30 last:border-b-0">
+                    <div className="col-span-1">
+                      <span className="text-green-500 font-medium">✓</span>
+                    </div>
+                    <div className="col-span-11">
+                      <span className="font-light tracking-wide">{cert}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+              
+              <p className="text-muted-foreground italic font-light tracking-wide pt-8">
+                "Always exploring new tech and sharpening my skills."
+              </p>
+            </div>
           </div>
-          
-          <p className="text-muted-foreground italic">
-            "Always exploring new tech and sharpening my skills."
-          </p>
         </div>
       </div>
     </section>

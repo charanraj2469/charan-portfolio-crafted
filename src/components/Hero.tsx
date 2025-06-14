@@ -9,37 +9,47 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative">
-      <div className="container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            Hi, I'm Charan Raj 👋
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in">
-            Full Stack Developer building modern web applications with React, Node.js & MongoDB.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-            <Button 
-              size="lg" 
-              onClick={() => scrollToSection('projects')}
-              className="w-full sm:w-auto"
-            >
-              View My Work
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto"
-            >
-              Contact Me
-            </Button>
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="space-y-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">
+              Hi, I'm{" "}
+              <span className="font-bold">Charan Raj</span>
+              <span className="inline-block ml-2">👋</span>
+            </h1>
+            
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed text-muted-foreground tracking-wide">
+                Full Stack Developer building modern web applications 
+                <br className="hidden md:block" />
+                with React, Node.js & MongoDB.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+              <Button 
+                size="lg" 
+                onClick={() => scrollToSection('projects')}
+                className="w-full sm:w-auto font-medium tracking-wide px-8 py-3"
+              >
+                View My Work
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => scrollToSection('contact')}
+                className="w-full sm:w-auto font-medium tracking-wide px-8 py-3"
+              >
+                Contact Me
+              </Button>
+            </div>
           </div>
         </div>
       </div>
       
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="h-6 w-6 text-muted-foreground" />
+        <ArrowDown className="h-5 w-5 text-muted-foreground" />
       </div>
     </section>
   );
