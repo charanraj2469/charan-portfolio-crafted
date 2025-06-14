@@ -30,16 +30,16 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-gradient-to-br from-gray-50 to-purple-50 relative overflow-hidden">
+    <section id="projects" className="py-32 bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-900/20 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent mb-6">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
             Showcasing my passion for creating impactful digital solutions
           </p>
         </div>
@@ -47,16 +47,16 @@ export function Projects() {
         <div className="space-y-16">
           {projects.map((project, index) => (
             <div key={index} className="group">
-              <div className="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02]">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02]">
                 <div className="grid lg:grid-cols-5 gap-0">
                   <div className="lg:col-span-2 p-8 lg:p-12">
                     <div className={`w-16 h-16 bg-gradient-to-r ${project.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:rotate-12 transition-transform duration-300`}>
                       {project.icon}
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">{project.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.stack.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                        <span key={techIndex} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium">
                           {tech}
                         </span>
                       ))}
@@ -72,7 +72,7 @@ export function Projects() {
                   </div>
                   
                   <div className="lg:col-span-3 p-8 lg:p-12 flex items-center">
-                    <p className="text-gray-600 leading-relaxed text-lg">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                       {project.description}
                     </p>
                   </div>

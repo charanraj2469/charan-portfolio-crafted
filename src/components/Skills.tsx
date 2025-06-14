@@ -28,16 +28,16 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-32 bg-white relative overflow-hidden">
+    <section id="skills" className="py-32 bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent mb-6">
             Skills & Technologies
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
             Technologies I love working with to bring ideas to life
           </p>
         </div>
@@ -45,16 +45,16 @@ export function Skills() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
             <div key={index} className="group">
-              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 h-full">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 h-full">
                 <div className="text-center mb-6">
                   <div className={`w-16 h-16 bg-gradient-to-r ${category.gradient} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300`}>
                     {category.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{category.title}</h3>
                 </div>
                 <div className="space-y-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="bg-gray-50 rounded-xl px-4 py-3 text-center font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                    <div key={skillIndex} className="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200">
                       {skill}
                     </div>
                   ))}

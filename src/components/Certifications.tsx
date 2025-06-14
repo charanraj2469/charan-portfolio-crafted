@@ -34,16 +34,16 @@ export function Certifications() {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-8 lg:px-12 max-w-6xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent mb-6">
             Certifications
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
             Continuous learning and professional development achievements
           </p>
         </div>
@@ -51,18 +51,18 @@ export function Certifications() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert, index) => (
             <div key={index} className="group">
-              <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 h-full">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 h-full">
                 <div className="text-center">
                   <div className={`w-16 h-16 bg-gradient-to-r ${cert.gradient} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300`}>
                     {cert.icon}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 leading-tight">
                     {cert.title}
                   </h3>
                   
-                  <div className="inline-block px-4 py-2 bg-gray-100 rounded-full">
-                    <p className="text-gray-600 font-medium text-sm">{cert.provider}</p>
+                  <div className="inline-block px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full">
+                    <p className="text-gray-600 dark:text-gray-300 font-medium text-sm">{cert.provider}</p>
                   </div>
                 </div>
               </div>

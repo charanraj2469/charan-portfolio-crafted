@@ -63,25 +63,25 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 bg-white relative overflow-hidden">
+    <section id="contact" className="py-32 bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent mb-6">
             Let's Work Together
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your next project!
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Get in Touch</h3>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
                 I'm always excited to discuss new opportunities, collaborate on interesting projects, or just have a friendly chat about technology and development.
               </p>
               
@@ -94,17 +94,17 @@ export function Contact() {
                     rel="noopener noreferrer"
                     className="group block"
                   >
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-2xl hover:bg-white dark:hover:bg-gray-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                       <div className="flex items-center space-x-4">
                         <div className={`w-12 h-12 bg-gradient-to-r ${item.gradient} rounded-xl flex items-center justify-center text-white font-bold group-hover:rotate-12 transition-transform duration-300`}>
                           {item.icon}
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">{item.label}</p>
-                          <p className="text-gray-600 text-sm">{item.value}</p>
+                          <p className="font-semibold text-gray-900 dark:text-gray-100">{item.label}</p>
+                          <p className="text-gray-600 dark:text-gray-300 text-sm">{item.value}</p>
                         </div>
                       </div>
-                      <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </div>
@@ -114,14 +114,14 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <Input
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-gray-50 border-0 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:ring-2 focus:ring-purple-500 transition-all duration-200"
+                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200"
                 required
               />
               <Input
@@ -129,7 +129,7 @@ export function Contact() {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-gray-50 border-0 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:ring-2 focus:ring-purple-500 transition-all duration-200"
+                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200"
                 required
               />
               <Textarea
@@ -137,7 +137,7 @@ export function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
-                className="bg-gray-50 border-0 rounded-xl px-4 py-4 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:ring-2 focus:ring-purple-500 transition-all duration-200 resize-none"
+                className="bg-gray-50 dark:bg-gray-700 border-0 rounded-xl px-4 py-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-purple-500 transition-all duration-200 resize-none"
                 required
               />
               <Button 

@@ -1,19 +1,19 @@
 
 export function Experience() {
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-32 bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-8 lg:px-12 max-w-6xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent mb-6">
             Professional Journey
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-md rounded-3xl p-12 shadow-xl border border-white/20">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-12 shadow-xl border border-white/20 dark:border-gray-700/20">
             <div className="relative">
               <div className="absolute left-8 top-8 bottom-8 w-1 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full"></div>
               
@@ -24,14 +24,14 @@ export function Experience() {
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Frontend Developer Intern</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Frontend Developer Intern</h3>
                     <p className="text-lg font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">CodeTech IT Solutions</p>
-                    <p className="text-gray-500 font-medium">Feb 2025 – Mar 2025</p>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">Feb 2025 – Mar 2025</p>
                   </div>
                   
-                  <div className="bg-gray-50 rounded-2xl p-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
-                    <ul className="space-y-3 text-gray-600">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6">
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Key Achievements:</h4>
+                    <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                       <li className="flex items-start">
                         <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         Built real-time chat and quiz applications using React.js with modern state management
