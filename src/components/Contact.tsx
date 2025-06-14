@@ -60,42 +60,48 @@ export function Contact() {
   };
 
   const contactInfo = [
-    { icon: "📧", label: "Email", value: "charanchanda20@gmail.com", link: "mailto:charanchanda20@gmail.com" },
-    { icon: "📞", label: "Phone", value: "+91 9100230869", link: "tel:+919100230869" },
-    { icon: "🔗", label: "LinkedIn", value: "LinkedIn Profile", link: "https://www.linkedin.com/in/chanda-charan-210431230" },
-    { icon: "🔗", label: "GitHub", value: "GitHub Profile", link: "https://github.com/charanraj2469" },
-    { icon: "🌐", label: "Portfolio", value: "Portfolio Site", link: "https://chandaportfolio.netlify.app/" }
+    { icon: "📧", label: "Email", value: "charanchanda20@gmail.com", link: "mailto:charanchanda20@gmail.com", gradient: "from-red-500 to-pink-500" },
+    { icon: "📞", label: "Phone", value: "+91 9100230869", link: "tel:+919100230869", gradient: "from-green-500 to-emerald-500" },
+    { icon: "💼", label: "LinkedIn", value: "LinkedIn Profile", link: "https://www.linkedin.com/in/chanda-charan-210431230", gradient: "from-blue-500 to-blue-600" },
+    { icon: "🔗", label: "GitHub", value: "GitHub Profile", link: "https://github.com/charanraj2469", gradient: "from-gray-700 to-gray-800" },
+    { icon: "🌐", label: "Portfolio", value: "Portfolio Site", link: "https://chandaportfolio.netlify.app/", gradient: "from-purple-500 to-violet-500" }
   ];
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-muted/30">
+    <section id="contact" className="py-32 lg:py-40 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
-              Get In <span className="font-bold">Touch</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-6">
+              Get In <span className="font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Touch</span>
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-20">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-medium tracking-wide mb-8">Contact Information</h3>
-                <div className="space-y-6">
+                <h3 className="text-3xl font-medium tracking-wide mb-12">Let's connect and create something amazing together</h3>
+                <div className="grid gap-6">
                   {contactInfo.map((item, index) => (
-                    <div key={index} className="grid grid-cols-12 gap-4 items-center">
-                      <div className="col-span-2 md:col-span-1">
-                        <span className="text-xl">{item.icon}</span>
-                      </div>
-                      <div className="col-span-10 md:col-span-11">
-                        <a 
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:underline font-light tracking-wide"
-                        >
-                          {item.value}
-                        </a>
+                    <div key={index} className="group">
+                      <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-border transition-all duration-300 hover:shadow-lg">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-xl shadow-lg`}>
+                            {item.icon}
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm text-muted-foreground font-light tracking-wide mb-1">{item.label}</p>
+                            <a 
+                              href={item.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:text-primary/80 font-medium tracking-wide transition-colors duration-300"
+                            >
+                              {item.value}
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -104,39 +110,41 @@ export function Contact() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-medium tracking-wide mb-8">Send Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <Input
-                  placeholder="Your Name *"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="border-0 bg-background font-light tracking-wide"
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email *"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  className="border-0 bg-background font-light tracking-wide"
-                />
-                <Textarea
-                  placeholder="Your Message (min 30 characters) *"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                  required
-                  className="border-0 bg-background font-light tracking-wide resize-none"
-                />
-                <Button 
-                  type="submit" 
-                  className="w-full font-medium tracking-wide py-3"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
+              <div className="bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50 shadow-xl">
+                <h3 className="text-3xl font-medium tracking-wide mb-8">Send Message</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <Input
+                    placeholder="Your Name *"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    className="border-0 bg-muted/50 font-light tracking-wide rounded-xl py-4 text-lg focus:ring-2 focus:ring-primary/20"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Your Email *"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    className="border-0 bg-muted/50 font-light tracking-wide rounded-xl py-4 text-lg focus:ring-2 focus:ring-primary/20"
+                  />
+                  <Textarea
+                    placeholder="Your Message (min 30 characters) *"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    rows={4}
+                    required
+                    className="border-0 bg-muted/50 font-light tracking-wide resize-none rounded-xl text-lg focus:ring-2 focus:ring-primary/20"
+                  />
+                  <Button 
+                    type="submit" 
+                    className="w-full font-medium tracking-wide py-4 text-lg rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message ✨"}
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
