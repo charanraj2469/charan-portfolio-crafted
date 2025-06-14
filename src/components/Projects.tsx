@@ -1,8 +1,17 @@
 
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 export function Projects() {
   const projects = [
+    {
+      title: "Electro",
+      description: "An AI-generated e-commerce website built using WIX, focused on electronic products. It features product browsing, search, filtering, and a modern, clean layout.",
+      stack: ["WIX AI Website Builder", "Custom Styling", "Product Pages", "SEO Optimization"],
+      live: "https://charanchanda20.wixsite.com/electro?rc=test-site",
+      gradient: "from-yellow-500 to-orange-600",
+      icon: "⚡"
+    },
     {
       title: "NxtWatch",
       description: "A comprehensive YouTube clone featuring trending videos, gaming content, and personalized saved video listings. Implements secure user authentication, protected routes, and seamless light/dark mode switching for optimal user experience.",
@@ -64,9 +73,10 @@ export function Projects() {
                     {project.live && (
                       <Button 
                         onClick={() => window.open(project.live, '_blank')}
-                        className={`bg-gradient-to-r ${project.gradient} hover:shadow-lg text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105`}
+                        className={`bg-gradient-to-r ${project.gradient} hover:shadow-lg text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2`}
                       >
-                        View Live Project →
+                        View Live Project 
+                        <ExternalLink size={16} />
                       </Button>
                     )}
                   </div>
